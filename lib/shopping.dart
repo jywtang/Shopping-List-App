@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
 
-// Takes in name and quantity as attributes
+/// Defines a shopping item
 class ShoppingItem {
-  String name; // Cannot be null
-  String quantity; // Default is '1'
-  bool isChecked; // Initially not checked from shoppingList
+  /// Name of the item, cannot be null
+  String name;
+
+  /// The quantity of item, the default is 1
+  String quantity;
+
+  /// Whether something is checked off from shoppinglist, default false
+  bool isChecked;
   ShoppingItem(
       {required this.name, required this.quantity, this.isChecked = false});
 
-  @override
-  String toString() {
-    return 'ShoppingItem(name: ${this.name}, quantity: ${this.quantity}, isChecked: ${this.isChecked})';
-  }
+  // @override
+  // String toString() {
+  //   return 'ShoppingItem(name: ${this.name}, quantity: ${this.quantity}, isChecked: ${this.isChecked})';
+  // }
 
-  // Named constructor
+  /// A named constructor that takes a json object
   ShoppingItem.fromJson(Map<String, dynamic> json)
       : name = json['name'],
         quantity = json['quantity'],
@@ -24,11 +29,14 @@ class ShoppingItem {
   }
 }
 
-// Takes in a ShoppingItem and returns a Card widget
+/// Defines a card in the ShoppingListPage
+///
+/// Takes in a [ShoppingItem] and returns a [Card] for the item
 class ShoppingCard extends StatefulWidget {
   final ShoppingItem shoppingItem;
-  // delete item from shoppingList
+  // Delete item from shoppingList
   final Function deleteItem;
+  // Save current Shopping List
   final Function saveList;
   final bool deleteMode;
 

@@ -23,7 +23,7 @@ class _ShoppingListPageState extends State<ShoppingListPage> {
     _loadList();
   }
 
-// Load shoppingList from Shared Preferences (or initialise to empty)
+  /// Load [shoppingList] from memory using [SharedPreferences] (or initialise to empty)
   void _loadList() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
@@ -33,7 +33,7 @@ class _ShoppingListPageState extends State<ShoppingListPage> {
     });
   }
 
-// Save current shoppingList to Shared Preferences (or empty the list, if clear set to true)
+  /// Save current state of [shoppingList] into [SharedPreferences]
   void _saveList() async {
     final prefs = await SharedPreferences.getInstance();
     prefs.setStringList(

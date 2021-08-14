@@ -7,25 +7,10 @@ class AddItem extends StatefulWidget {
 }
 
 class _AddItemState extends State<AddItem> {
-  // late final FocusNode _quantity, _button;
-
   String? name = '';
   String? quantity = '';
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-  @override
-  void initState() {
-    // _quantity = FocusNode();
-    // _button = FocusNode();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    // _quantity.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +37,6 @@ class _AddItemState extends State<AddItem> {
                 decoration: InputDecoration(labelText: 'Item Name'),
                 onSaved: (value) {
                   name = value;
-                  // _quantity.requestFocus();
                 },
                 validator: (String? value) {
                   return (value == null || value.isEmpty)
@@ -64,7 +48,6 @@ class _AddItemState extends State<AddItem> {
                 height: 20,
               ),
               TextFormField(
-                // focusNode: _quantity,
                 onSaved: (value) {
                   quantity = (value == null || value.isEmpty) ? '1' : value;
                 },
@@ -75,7 +58,6 @@ class _AddItemState extends State<AddItem> {
                 height: 20,
               ),
               ElevatedButton.icon(
-                // focusNode: _button,
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
